@@ -1,0 +1,11 @@
+n=int(input())
+for _ in range(n):
+    a=int(input())
+    k=0
+    m=0
+    for p in range(a):
+        i,j=map(int,input().split())
+        if i<=10 and k<j:
+            k=j
+            m=p
+    print(m+1)
