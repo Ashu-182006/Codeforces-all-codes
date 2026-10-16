@@ -1,0 +1,23 @@
+import sys
+ 
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    ptr = 0
+    t = int(input_data[ptr])
+    ptr += 1
+    for _ in range(t):
+        b = int(input_data[ptr]) 
+        ptr += 1
+        s = [int(x) for x in input_data[ptr:ptr+b]]
+        ptr += b
+        m = float('inf')
+        for i in range(b):
+            for j in range(i + 1, b):
+                current_sum = s[i] + s[j] + (j - i)
+                if current_sum < m:
+                    m = current_sum
+        sys.stdout.write(str(m) + "\n")
+if __name__ == '__main__':
+    solve()
