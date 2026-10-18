@@ -1,0 +1,19 @@
+import sys
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    a = int(input_data[0])
+    b = int(input_data[1])
+    s = input_data[2]
+    if s[a] == '-':
+        l=s[:a]
+        r=s[a+1:]
+        if l.isdigit() and r.isdigit():
+            print("Yes")
+        else:
+            print("No")
+    else:
+        print("No")
+if __name__ == '__main__':
+    solve()
