@@ -1,0 +1,17 @@
+import sys
+def solve():
+    n=sys.stdin.read().split()
+    i=0
+    a=int(n[0])
+    i+=1
+    b=list(map(int, n[i:i+a]))
+    i+=a
+    c=list(map(int, n[i:i+a]))
+    c.sort()
+    b.sort()
+    if c==b:
+        return "yes"
+    return "no"
+ 
+if __name__=="__main__":
+    sys.stdout.write(solve()+"\n")
