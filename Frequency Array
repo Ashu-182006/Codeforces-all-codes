@@ -1,0 +1,24 @@
+import sys
+def solve():
+    n=sys.stdin.read().split()
+    i=0
+    a=int(n[i])
+    i+=1
+    b=int(n[i])
+    i+=1
+    c=[int(x) for x in n[i:i+a]]
+    i+=a
+    d=[int(x) for x in n[i:i+b]]
+    i+=b
+    k=j=0
+    while k<a and j<b:
+        if c[k]==d[j]:
+            j+=1
+            k+=1
+        else:
+            k+=1
+    if j==b:
+        return "YES"    
+    return "NO"
+if __name__=="__main__":
+    sys.stdout.write(solve()+"\n")
