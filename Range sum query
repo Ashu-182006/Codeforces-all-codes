@@ -1,0 +1,28 @@
+a, b = map(int, input().split())
+grid = []
+for _ in range(a):
+    grid.append(input())
+c, d = map(int, input().split())
+ 
+c -= 1
+d -= 1
+ 
+directions = [
+    (-1, -1), (-1, 0), (-1, 1),
+    (0, -1),           (0, 1),
+    (1, -1),  (1, 0),  (1, 1)
+]
+ 
+is_surrounded = True
+ 
+for dx, dy in directions:
+    nx, ny = c + dx, d + dy
+    if 0 <= nx < a and 0 <= ny < b:
+        if grid[nx][ny] != 'x':
+            is_surrounded = False
+            break
+ 
+if is_surrounded:
+    print("yes")
+else:
+    print("no")
