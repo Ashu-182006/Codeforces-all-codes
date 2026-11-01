@@ -1,0 +1,14 @@
+import sys 
+def solve():
+    n=sys.stdin.read().split()
+    a=n[0]
+    b=n[1]
+    sys.stdout.write(f"{len(a)} {len(b)}\n")
+    c=a+b
+    sys.stdout.write(f"{c}\n")
+    d=b[0]+a[1:]
+    sys.stdout.write(f"{d} ")
+    e=a[0]+b[1:]
+    sys.stdout.write(f"{e}")
+if __name__ == "__main__":
+    solve()
