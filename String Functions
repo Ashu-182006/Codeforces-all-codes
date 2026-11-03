@@ -1,0 +1,52 @@
+import sys
+ 
+def solve():
+    n=sys.stdin.read().split()
+    if not n:
+        return
+    a=int(n[0])
+    b=int(n[1])
+    c=list(n[2])
+    i=3
+    output = []
+    for _ in range(b):
+        q=n[i]
+        i+=1
+        if q == "pop_back":
+            c.pop()
+        elif q == "front":
+            output.append(c[0])
+        elif q == "back":
+            output.append(c[-1])
+        elif q == "sort":
+            l = int(n[i])
+            r = int(n[i+1])
+            i += 2
+            left = min(l, r) - 1
+            right = max(l, r)
+            c[left:right] = sorted(c[left:right])
+        elif q == "reverse":
+            l = int(n[i])
+            r = int(n[i+1])
+            i += 2
+            left = min(l, r) - 1
+            right = max(l, r)
+            c[left:right] = reversed(c[left:right])
+        elif q == "print":
+            pos = int(n[i]) - 1
+            i += 1
+            output.append(c[pos])
+        elif q == "substr":
+            l = int(n[i])
+            r = int(n[i+1])
+            i += 2
+            left = min(l, r) - 1
+            right = max(l, r)
+            output.append("".join(c[left:right]))
+        elif q == "push_back":
+            x = n[i]
+            i += 1
+            c.append(x)
+    print('\n'.join(output))
+if __name__ == '__main__':
+    solve()
