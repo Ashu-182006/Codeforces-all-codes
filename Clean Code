@@ -1,0 +1,30 @@
+import sys
+def solve():
+    s = sys.stdin.read()
+    i, n, r = 0, len(s), []
+    b = c = 0
+    while i < n:
+        if b:
+            if s[i:i+2] == '*/':
+                b, i = 0, i+2
+            else:
+                i += 1
+        elif c:
+            if s[i] == '\n':
+                c, i = 0, i+1
+                r.append('\n')
+            else:
+                i += 1
+        else:
+            if s[i:i+2] == '/*':
+                b, i = 1, i+2
+            elif s[i:i+2] == '//':
+                c, i = 1, i+2
+            else:
+                r.append(s[i])
+                i += 1
+    for x in ''.join(r).split('\n'):
+        if x.strip():
+            sys.stdout.write(x + '\n')
+if __name__ == '__main__':
+    solve()
